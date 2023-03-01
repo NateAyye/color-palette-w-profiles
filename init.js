@@ -15,10 +15,6 @@ if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
 
 const nav = document.querySelector('nav')
 if (!nav) {
-  const navScript = document.createElement('script');
-  navScript.defer = true;
-  navScript.src = 'layouts/nav.js';
-  document.head.append(navScript);
   const n = document.createElement('nav');
   n.innerHTML = `
 <div class="nav-container">
@@ -55,10 +51,10 @@ if (!nav) {
 document.querySelector('main').style.top = getComputedStyle(document.querySelector('nav')).height
 
 document.querySelector('.theme-changer').addEventListener('click', () => {
-  document.body.classList.forEach((e) =>{
-    if (e.match(/^(dark|light)-theme$/)) {
-      const theme = e.split('-')[0]
-      document.body.classList.remove(e)
+  document.body.classList.forEach((className) =>{
+    if (className.match(/^(dark|light)-theme$/)) {
+      const theme = className.split('-')[0]
+      document.body.classList.remove(className)
       theme === 'light' ? document.body.classList.add('dark-theme') : document.body.classList.add('light-theme')
     }
   })
