@@ -1,0 +1,79 @@
+nav {
+  position: absolute;
+  inset: 0 0 auto 0;
+  background: #272727;
+}
+
+input {
+  position: relative;
+}
+
+.login {
+  display: grid;
+  place-items: center;
+  background: #272727;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.form-container {
+  border-radius: 0.25rem;
+  background: #eeeef8;
+}
+.form-container h2 {
+  padding: 0.4em 0 0 0;
+  color: #272727;
+}
+.form-container form {
+  padding: 0 1rem 1rem;
+}
+.form-container form input {
+  width: 300px;
+}
+.form-container form button {
+  width: 100%;
+  border: none;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 600;
+  border-radius: 0.4em;
+  padding: 0.4em;
+  background: #4089d2;
+  color: #eeeef8;
+  cursor: pointer;
+}
+
+.input-group {
+  position: relative;
+  width: max-content;
+  margin: auto;
+}
+.input-group:focus-within label {
+  top: 0;
+}
+.input-group label {
+  position: absolute;
+  z-index: 2;
+  left: 0.4em;
+  top: calc(1rem + 0.4em);
+  color: hsl(0deg, 0%, 35.7142857143%);
+  pointer-events: none;
+  font-weight: 500;
+  transition: top 200ms ease-in;
+}
+.input-group input {
+  margin-top: calc(1rem + 0.4em);
+}
+.input-group .error-message {
+  position: absolute;
+  width: max-content;
+  font-size: 0.75rem;
+  top: 1.3rem;
+  padding: 0.4em 0.75rem;
+  border-radius: 0.4em;
+  color: white;
+}
+.input-group .input-error {
+  background: #de3756;
+}
+
+/*# sourceMappingURL=login.css.map */

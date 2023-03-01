@@ -1,0 +1,94 @@
+@import 'main';
+
+$padding: .4em;
+
+
+input {
+  position: relative;
+}
+
+.login {
+  display: grid;
+  place-items: center;
+  background: $primary-color;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.form-container {
+  border-radius: .25rem;
+  background: $text-color;
+
+
+  h2 {
+    padding: $padding 0 0 0;
+    color: $primary-color;
+  }
+  form {
+    padding: 0 1rem 1rem;
+
+    input {
+      width: 300px;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      font-family: "Segoe UI", sans-serif;
+      font-weight: 600;
+      border-radius: $padding;
+      padding: $padding;
+      background: #4089d2;
+      color: $text-color;
+      cursor: pointer;
+    }
+  }
+}
+
+
+.input-group {
+  $label-color: hsla(360, 0%, 25% / .7);
+
+  position: relative;
+  width: max-content;
+  margin: auto;
+
+  &:focus-within  {
+    label {
+      top: 0;
+    }
+  }
+  label {
+    position: absolute;
+    z-index: 2;
+    left: $padding;
+    top: calc(1rem + $padding);
+    color: $label-color;
+    pointer-events: none;
+    font-weight: 500;
+
+    transition: top 200ms ease-in;
+
+  }
+
+  input {
+    margin-top: calc(1rem + $padding);
+  }
+
+  .error-message {
+    position: absolute;
+    width: max-content;
+    font-size: .75rem;
+    top: 1.3rem;
+    padding: $padding .75rem;
+    border-radius: $padding;
+    color: white;
+  }
+
+  .input-error {
+    background: $acc-color;
+  }
+}
+
+
+
