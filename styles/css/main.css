@@ -32,6 +32,64 @@ body {
     background: rgba(var(--primary-rgb) / .99);
 }
 
+
+main {
+    display: block;
+    position: relative;
+    padding: 1.5rem 2rem;
+}
+
+.dashboard-container {
+    background: rgba(var(--text-rgb) / .2);
+    border-radius: var(--spacing);
+    padding: var(--spacing);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+aside {
+    position: fixed;
+    inset: 0 0 0 auto;
+    background: rgba(var(--text-rgb) / .05);
+    color: var(--text-color);
+
+    transition: transform 200ms ease-in;
+}
+aside div:not(.resize-handle) {
+    position: relative;
+    padding: 1rem 2rem;
+    height: 100%;
+}
+
+.resize-handle {
+    position: absolute;
+    right: 100%;
+    top: 1rem;
+    bottom: 1rem;
+    width: 3px;
+    border-radius: 100vh;
+    cursor: w-resize;
+    background: rgba(var(--text-rgb) / .2);
+}
+
+footer {
+    display: block;
+    position: relative;
+    bottom: 0;
+    background: rgba(var(--text-rgb) / .5);
+}
+
+footer div {
+    display: grid;
+    place-items: center;
+    margin: 1rem;
+}
+
+.active-settings {
+    transform: translateX(0);
+}
+
 nav {
     position: absolute;
     inset: 0 0 auto 0;
@@ -44,10 +102,6 @@ nav {
     margin: auto;
     width: clamp(400px, 100%, 1300px);
     justify-content: space-between;
-}
-
-.brand-btn {
-    margin: var(--spacing);
 }
 
 .brand {
@@ -72,17 +126,12 @@ nav,
 
 .navbar-settings svg {
     fill: rgba(var(--text-rgb) / .8);
-
 }
 
-.show-setting-toggle,
-.theme-changer,
-.user-icon,
-.brand-btn {
-    background: none;
-    border: none;
+.brand-btn,
+.user-icon {
+    margin: var(--spacing);
     border-radius: var(--spacing);
-    cursor: pointer;
 }
 
 .show-setting-toggle:hover {
@@ -92,8 +141,4 @@ nav,
 .user-icon {
     margin: calc(var(--spacing) / 2);
     filter: drop-shadow(0 0 1px  var(--text-color));
-}
-
-main {
-    position: relative;
 }
