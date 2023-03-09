@@ -1,6 +1,7 @@
 class Auth {
 
   constructor() {
+    document.querySelector('body').style.display = 'none';
     const auth = localStorage.getItem("auth");
     this.validateAuth(auth);
   }
@@ -12,8 +13,9 @@ class Auth {
       if(currentPath) {
         window.location.replace(this.pathArray.join('/'));
       }
+      document.querySelector('body').style.display = 'block';
     } else {
-
+      document.querySelector('body').style.display = 'block';
     }
   }
 

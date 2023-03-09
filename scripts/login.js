@@ -9,10 +9,31 @@ class Login {
     this.validateOnSubmit();
   }
 
-  validateOnSubmit() {
+  // Example POST method implementation:
+  postData = async (url = "", data = {}) => {
+    // Default options are marked with *
+    const response = await fetch(url, {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      mode: "cors", // no-cors, *cors, same-origin
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      // credentials: "same-origin", // include, *same-origin, omit
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: "follow", // manual, *follow, error
+      referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+  }
+
+
+
+validateOnSubmit() {
     const self = this;
 
-    this.form.addEventListener("submit", (e) => {
+    this.form.addEventListener("submit", async (e) => {
       // Prevent Form From Submitting
       e.preventDefault();
 
@@ -28,6 +49,9 @@ class Login {
 
       if (error === 0) {
         //do log-in api call here
+        this.postData("http://localhost:3000/users", { username: this.username, password: this.password }).then((data) => {
+          console.log(data); // JSON data parsed by `data.json()` call
+        });
         localStorage.setItem("auth", '1');
         this.form.submit();
       }
@@ -43,6 +67,7 @@ class Login {
       );
       return false;
     } else {
+      if (field.id === 'username') this.username = field.value
       if (field.id === "password") {
         if (field.value.length < 8) {
           this.setStatus(
@@ -65,6 +90,7 @@ class Login {
           return false;
         } else {
           this.setStatus(field, null, "success");
+          this.password = field.value
           return true;
         }
       }
