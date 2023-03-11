@@ -34,16 +34,11 @@ class Main {
     let innerHTML
     if (currentPath === 'dashboard') {
       innerHTML = this.dashboard()
+
     }
 
     this.main.innerHTML += innerHTML ?? ``;
 
-    this.main.querySelector('.get-users').addEventListener('click', async (e) => {
-      const results = await fetch('http://localhost:3000/users')
-      results.json().then(data => {
-        console.log(data)
-      })
-    })
 
     document.body.append(this.main)
   }

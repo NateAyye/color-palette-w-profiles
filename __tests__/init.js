@@ -3,7 +3,7 @@ class App {
   static init() {
     this.auth = new Auth();
     const nav = new Nav();
-    const main = new Main();
+    this.main = new Main();
     const aside = new Aside();
     // const footer = new Footer();
 
@@ -17,6 +17,13 @@ class App {
     } else {
       document.body.classList.add('dark-theme');
     }
+
+    this.main.main.querySelector('.get-users').addEventListener('click', async (e) => {
+      const results = await fetch('http://localhost:3500/users')
+      results.json().then(data => {
+        console.log(data)
+      })
+    })
 
     // Log Out Event listener
     document.querySelector('.logout')?.addEventListener('click', ev => {
