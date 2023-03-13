@@ -5,7 +5,7 @@ class App {
     const nav = new Nav();
     this.main = new Main();
     const aside = new Aside();
-    // const footer = new Footer();
+    const footer = new Footer();
 
     this.eventHandlerInit();
   }
